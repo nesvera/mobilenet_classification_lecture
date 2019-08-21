@@ -18,7 +18,7 @@ if __name__ == "__main__":
     # argument handler
     parser = argparse.ArgumentParser()
     parser.add_argument('-i', '--input_model', required=True,
-                        help='Path to the weights/model file .pb')
+                        help='Path to the weights/model file .h5')
 
     args = parser.parse_args()
     model_path = args.input_model
