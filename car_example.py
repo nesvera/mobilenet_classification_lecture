@@ -47,11 +47,12 @@ if __name__ == "__main__":
         # if not, the raspberry will suffer to present it
         frame = cv2.resize(frame, None, fx=0.5, fy=0.5)
 
-         # Convert 
+        # Convert image to the necessary format, resize to the correct size (224,224),
+        # and normalize each pixel of the image from (0->255) to (0->1)
         blob_image = cv2.dnn.blobFromImage(frame, 
-                                           scalefactor=1.0, #1./128,          # standardization
+                                           scalefactor= 1./255,               # normalization
                                            size=(image_size, image_size),     # input size of neural network
-                                           mean=(0,0,0),#(128, 128, 128),     # normalization
+                                           mean=(0,0,0),                      # standardization
                                            swapRB=False) 
 
         model.setInput(blob_image)

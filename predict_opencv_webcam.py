@@ -42,12 +42,13 @@ if __name__ == "__main__":
 
         pred_start_time = time.time()
 
-        # Convert 
+        # Convert image to the necessary format, resize to the correct size (224,224),
+        # and normalize each pixel of the image from (0->255) to (0->1)
         blob_image = cv2.dnn.blobFromImage(frame, 
-                                           scalefactor=1.0, #1./128,          # standardization
+                                           scalefactor= 1./255,               # normalization
                                            size=(image_size, image_size),     # input size of neural network
-                                           mean=(0,0,0),#(128, 128, 128),     # normalization
-                                           swapRB=False)                      # RGB -> BGR
+                                           mean=(0,0,0),                      # standardization
+                                           swapRB=False) 
         
         model.setInput(blob_image)
 

@@ -42,6 +42,9 @@ if __name__ == "__main__":
 
         # reshape the image to the neural network
         image = cv2.resize(frame, (224, 224))
+
+        image = image *  1./255
+
         image_tensor = np.reshape(image, (-1, image.shape[0], image.shape[1], image.shape[2]))
 
         # forward pass in the nn
