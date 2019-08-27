@@ -7,6 +7,11 @@ __pycache__/
 *.h5
 *.pb
 
+# Dasets inside dataset folder
+**/dataset/lecture_dataset
+**/dataset/train
+**/dataset/validation
+
 # C extensions
 *.so
 
