@@ -13,7 +13,7 @@ if __name__ == "__main__":
 
     folder_path = args.output_path
 
-    # open webcam
+    # open webcam (take care with the number of the webcam)
     cap = cv2.VideoCapture(0)
 
     # how many frames it will save by second
@@ -31,6 +31,9 @@ if __name__ == "__main__":
         # count elapsed time
         if (time.time()-timer_start) > period_to_save:
 
+            if frame is None:
+                continue
+
             timer_start = time.time()
 
             images_saved_counter += 1
@@ -40,6 +43,9 @@ if __name__ == "__main__":
             filename = datetime.datetime.utcnow().strftime('%Y_%m_%d_%H_%M_%S_%f')
             image_path = folder_path + "/" + filename + ".jpg"
 
+            # resize image
+            frame = cv2.resize(frame, (320,240))
+            
             cv2.imwrite(image_path, frame)
 
             cv2.imshow("Image", frame)
