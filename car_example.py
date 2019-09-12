@@ -88,12 +88,6 @@ if __name__ == "__main__":
             if mode_predection == 'background':
                 pass
             
-            elif mode_predection == 'chicken':
-                pass
-
-            elif mode_predection == 'pedestrian':
-                pass 
-
             elif mode_predection == 'traf_sign_60':
                 print("Action: braap")
 
